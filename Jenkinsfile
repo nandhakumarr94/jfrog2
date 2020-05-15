@@ -7,7 +7,8 @@ def server = Artifactory.server 'Artifactory-server'
 
 //Create Artifactory Maven Build instance
 def rtMaven = Artifactory.newMavenBuild()
-
+def project_path = "spring-boot-samples/spring-boot-sample-velocity"
+  
 def buildInfo
 
 pipeline {
@@ -21,7 +22,7 @@ pipeline {
     stages {
         stage('Clone sources'){
             steps {
-                git url: 'https://github.com/Anusha-DevOp/web_ex'
+                git url: 'https://github.com/nandhakumarr94/jenkins2-course-spring-boot.git'
             }
         }
 
@@ -67,7 +68,7 @@ pipeline {
 			}
 	    }
 	}
-
+	    dir(project_path) {
 	stage('Execute Maven') {
 		steps {
 		   script {
@@ -76,7 +77,7 @@ pipeline {
 			}
 		}
 		
-	}
+	}}
 
 	stage('Publish build info') {
 		steps {
