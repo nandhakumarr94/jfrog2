@@ -68,8 +68,9 @@ pipeline {
 			}
 	    }
 	}
-	    dir(project_path) {
+	   
 	stage('Execute Maven') {
+		 dir(project_path) {
 		steps {
 		   script {
 		
