@@ -1,6 +1,6 @@
 // Obtaining an Artifactory server instance defined in Jenkins:
 			
-def server = Artifactory.server 'Artifactory Version 4.15.0'
+def server = Artifactory.server 'Artifactory-server'
 
 		 //If artifactory is not defined in Jenkins, then create on:
 		// def server = Artifactory.newServer url: 'Artifactory url', username: 'username', password: 'password'
@@ -14,8 +14,8 @@ pipeline {
     agent any
 
 	tools {
-		jdk "Java-1.8"
-		maven "Maven-3.5.3"
+		//jdk "Java-1.8"
+		maven "Maven-3.6"
 	}
 
     stages {
