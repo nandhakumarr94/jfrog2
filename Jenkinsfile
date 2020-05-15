@@ -49,7 +49,7 @@ pipeline {
 		
 	   steps {
 		script {
-			rtMaven.tool = 'Maven-3.5.3' //Maven tool name specified in Jenkins configuration
+			rtMaven.tool = 'Maven-3.6.3' //Maven tool name specified in Jenkins configuration
 		
 			rtMaven.deployer releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local', server: server //Defining where the build artifacts should be deployed to
 			
