@@ -70,10 +70,10 @@ pipeline {
 	}
 	   
 	stage('Execute Maven') {
-		 dir(project_path) {
+		
 		steps {
 		   script {
-		
+		 dir(project_path) {
 		rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
 			}
 		}
