@@ -1,6 +1,7 @@
 // Obtaining an Artifactory server instance defined in Jenkins:
 			
-def server = Artifactory.server 'Artifactory-server'
+def resolverServer = Artifactory.server 'Artifactory-server'
+def deployerServer = Artifactory.server 'Artifactory-server'
 
 		 //If artifactory is not defined in Jenkins, then create on:
 		// def server = Artifactory.newServer url: 'Artifactory url', username: 'username', password: 'password'
@@ -52,9 +53,9 @@ pipeline {
 		script {
 			rtMaven.tool = 'Maven-3.6.3' //Maven tool name specified in Jenkins configuration
 		
-			rtMaven.deployer releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local', server: server //Defining where the build artifacts should be deployed to
+			rtMaven.deployer releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local', server: deployerServer //Defining where the build artifacts should be deployed to
 			
-			rtMaven.resolver releaseRepo:'libs-release', snapshotRepo: 'libs-snapshot', server: server //Defining where Maven Build should download its dependencies from
+			rtMaven.resolver releaseRepo:'libs-release', snapshotRepo: 'libs-snapshot', server: resolverServer //Defining where Maven Build should download its dependencies from
 			
 			rtMaven.deployer.artifactDeploymentPatterns.addExclude("pom.xml") //Exclude artifacts from being deployed
 			
