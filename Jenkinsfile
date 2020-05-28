@@ -75,7 +75,8 @@ pipeline {
 		steps {
 		   script {
 		// dir(project_path) {
-		rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
+			   sh 'mvn clean verify'
+		rtMaven.run pom: 'pom.xml', goals: 'install', buildInfo: buildInfo
 			//}
 		}
 		
