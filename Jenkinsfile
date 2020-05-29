@@ -2,6 +2,7 @@
 			
 def resolverServer = Artifactory.server 'Artifactory-server'
 def deployerServer = Artifactory.server 'Artifactory-server'
+def Server = Artifactory.server 'Artifactory-server'
 
 		 //If artifactory is not defined in Jenkins, then create on:
 		// def server = Artifactory.newServer url: 'Artifactory url', username: 'username', password: 'password'
@@ -75,8 +76,8 @@ pipeline {
 		steps {
 		   script {
 		// dir(project_path) {
-			   sh 'mvn clean verify'
-		rtMaven.run pom: 'pom.xml', goals: 'install', buildInfo: buildInfo
+			  // sh 'mvn clean verify'
+		rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
 			//}
 		}
 		
@@ -86,7 +87,7 @@ pipeline {
 		steps {
 		  script {
 
-		server.publishBuildInfo buildInfo
+		Server.publishBuildInfo buildInfo
 		}
 		}
 	}
