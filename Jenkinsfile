@@ -64,7 +64,7 @@ pipeline {
 		    
 			buildInfo = Artifactory.newBuildInfo() //Publishing build-Info to artifactory
 			
-			buildInfo.retention maxBuilds: 10, maxDays: 7, deleteBuildArtifacts: true
+			//buildInfo.retention maxBuilds: 10, maxDays: 7, deleteBuildArtifacts: true
 
 			buildInfo.env.capture = true
 			}
