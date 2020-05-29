@@ -28,7 +28,13 @@
     </dependency>
 
   </dependencies>
-
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>ubb82bfa6a-releases</name>
+        <url>http://localhost:8081/artifactory/libs-release-local</url>
+    </repository>
+</distributionManagement>
 
   <build>
     <finalName>web_ex</finalName>
